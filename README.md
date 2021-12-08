@@ -1,24 +1,28 @@
 # Hardware design for the RP2040/Raspi Pico
 
+This guide requires you to have some prerequisite knowledge about PCB design and the RP2040. I have a working prototype using the RP2040 in repo [HERE](https://github.com/Sleepdealr/RPAD) 
+
 ## Kicad Version
 To open these files, you will need a recent verison of Kicad nightly (Probably one after 6.0rc1).
 ## Libraries: 
 You might want to import and clone the symbols/fps to your own libs.
 - Symbol:
 	- Created by me
-	- `PCB/Libraries/Sleep-lib/`
+	- `/PCB/Libraries/Sleep-lib`
 - Footprint:
 	-  Taken from Raspi's implementation
-	- `PCB/Libraries/Footprints/RP2040-QFN-56.kicad_mod`
+	- `/PCB/Libraries/Footprints/RP2040-QFN-56.kicad_mod`
 	- 3D Model is included
 
-Images of the 3dview, EEschema, and PCBNew in the `img` folder. Also a bonus image of a working board!  
+Images of the 3dview, EEschema, and PCBNew in the `/img` folder.
+## Extra Resources
+All the long-form information I found about the board is in in the `/Pico-Resources` Folder
 
 ## Schematic 	 
-PDF of schematic: `PCB/RPAD-Schematic.pdf`
+[PDF of schematic](https://github.com/Sleepdealr/RP2040-designguide/blob/main/PCB/RP2040-Guide-Schematic.pdf)
 
 Schematic is fairly simple. Just connecting up the flash, power, and clock. 
-Most of the schematic and PCB layout was taken from the datasheets, and the hardware design example provided by Raspberry. The PDF is `Pico-Resources/hardware-design-with-rp2040.pdf`.
+Most of the schematic and PCB layout was taken from the datasheets, and the hardware design example provided by Raspberry. The PDF is `/Pico-Resources/hardware-design-with-rp2040.pdf`.
 I **highly** suggest reading it if anything is unclear. It's a 10x better explanation than anything I could ever come up with. 
 
 The SWD headers aren't strictly necessary, but are nice to have. I also suggest turning USB-BOOT into a physicaly button instead of just a header, would make it bit easier to push.
