@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "Sleep-lib")(type "KiCad")(uri "${KIPRJMOD}/Libraries/Sleep-lib/Sleep-lib.kicad_sym")(options "")(descr ""))
+)
