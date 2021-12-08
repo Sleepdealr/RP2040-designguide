@@ -12,6 +12,8 @@ You might want to import and clone the symbols/fps to your own libs.
 	- `PCB/Libraries/Footprints/RP2040-QFN-56.kicad_mod`
 	- 3D Model is included
 
+Images of the 3dview, EEschema, and PCBNew in the `img` folder. Also a bonus image of a working board!  
+
 ## Schematic 	 
 PDF of schematic: `PCB/RPAD-Schematic.pdf`
 
