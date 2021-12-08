@@ -1,7 +1,9 @@
 # Hardware design for the RP2040/Raspi Pico
 
+## Kicad Version
+To open these files, you will need a recent verison of Kicad nightly (Probably one after 6.0rc1).
 ## Libraries: 
-You might want to import and clone the symbols/fps to your own libs
+You might want to import and clone the symbols/fps to your own libs.
 - Symbol:
 	- Created by me
 	- `PCB/Libraries/Sleep-lib/`
@@ -20,6 +22,7 @@ I **highly** suggest reading it if anything is unclear. It's a 10x better explan
 The SWD headers aren't strictly necessary, but are nice to have. 
 
 ## PCB
+Everything on the PCB can be assembled by JLC. I tried to make the BOM as cost efficient as I could, but it's still fairly expensive with all the extended components. There are a few different flash sizes you can choose from, although they end up around more or less the same price. I couldn't find an 0402 version of the 27R capacitors for the data lines which was kinda annoying. 
 
 Fills inside of the MCU were taken from the design example. You can just copy paste them out. Make sure to set the correct zone priority and clearances, or your fills will be all messed up.
 
@@ -27,7 +30,7 @@ Try and keep the decoupling capacitors as close to their respective pins as poss
 
 
 
-### Firmware:
+## Firmware:
 Working firmware example for my RPAD
 - QMK
 	-	https://github.com/qmk/qmk_firmware/pull/14877
@@ -44,7 +47,7 @@ Working firmware example for my RPAD
 
 To be able to flash, hold the USB-BOOT button down as you plug in the keyboard (Sorta like Bootmagic reset)
 
-### Flashing QMK on Linux from CLI:
+## Flashing QMK on Linux from CLI:
 
 You will need to install picotool with your distro's package manager of choice, or [build it manually](https://github.com/raspberrypi/picotool#building).
 
@@ -65,3 +68,5 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0005", SYMLINK+="p
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
+
+Command borrowed from xyz's VIAL docs

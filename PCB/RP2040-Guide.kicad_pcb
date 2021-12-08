@@ -223,7 +223,7 @@
     (property "exclude_from_bom" "")
     (path "/fd95e533-21d9-43c8-9510-241e47eed5ef")
     (attr through_hole exclude_from_bom)
-    (fp_text reference "J3" (at 0 -2.77) (layer "F.SilkS")
+    (fp_text reference "J3" (at 0 -2.77) (layer "F.SilkS") hide
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 7423555d-5841-4064-81f0-d5c2764ec128)
     )

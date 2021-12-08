@@ -4,6 +4,13 @@
 
   (paper "A4")
 
+  (title_block
+    (title "RP2040 - Design Guide")
+    (date "2021-12-07")
+    (rev "0.1")
+    (company "Sleepdealer")
+  )
+
   (lib_symbols
     (symbol "Connector:USB_C_Receptacle_USB2.0" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at -10.16 19.05 0)

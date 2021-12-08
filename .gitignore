@@ -29,6 +29,3 @@ Export/**
 
 jlcpcb/*
 */*-Backups/*
-*.step
-
-!Libraries/HRO_TYPE-C-31-M-12.step
