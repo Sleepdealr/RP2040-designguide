@@ -21,6 +21,8 @@ All the long-form information I found about the board is in in the `/Pico-Resour
 ## Schematic 	 
 [PDF of schematic](https://github.com/Sleepdealr/RP2040-designguide/blob/main/PCB/RP2040-Guide-Schematic.pdf)
 
+![Schematic](img/eeschema.png)
+
 Schematic is fairly simple. Just connecting up the flash, power, and clock. 
 Most of the schematic and PCB layout was taken from the datasheets, and the hardware design example provided by Raspberry. The PDF is `/Pico-Resources/hardware-design-with-rp2040.pdf`.
 I **highly** suggest reading it if anything is unclear. It's a 10x better explanation than anything I could ever come up with. 
@@ -28,6 +30,8 @@ I **highly** suggest reading it if anything is unclear. It's a 10x better explan
 The SWD headers aren't strictly necessary, but are nice to have. I also suggest turning USB-BOOT into a physicaly button instead of just a header, would make it bit easier to push.
 
 ## PCB
+![PCB](/img/pcbnew.png)
+
 Everything on the PCB can be assembled by JLC. I tried to make the BOM as cost efficient as I could, but it's still fairly expensive with all the extended components. There are a few different flash sizes you can choose from, although they end up around more or less the same price. I couldn't find an 0402 version of the 27R capacitors for the data lines which was kinda annoying. 
 
 Fills inside of the MCU were taken from the design example. You can just copy paste them out. Make sure to set the correct zone priority and clearances, or your fills will be all messed up.
