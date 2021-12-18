@@ -107,3 +107,15 @@ sudo udevadm trigger
 ```
 
 Command borrowed from xyz's VIAL docs
+
+## Extra
+
+### EEPROM
+
+While the Raspberry Pi Pico RP2040 does not come with an EEPROM onboard, we simulate one by using a single 4K chunk of flash at the end of flash space.
+
+**Note that this is a simulated EEPROM and will only support the number of writes as the onboard flash chip, not the 100,000 or so of a real EEPROM.** Therefore, do not frequently update the EEPROM or you may prematurely wear out the flash.
+
+Source: <https://arduino-pico.readthedocs.io/en/latest/eeprom.html>
+
+This isn't really an issue, as the flash chip I used is rated for 100k cycles [link to datasheet](https://www.winbond.com/resource-files/w25q128jv_dtr%20revc%2003272018%20plus.pdf)
