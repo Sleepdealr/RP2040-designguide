@@ -1,6 +1,8 @@
 # Hardware design for the RP2040/Raspi Pico
 
-This guide requires you to have some prerequisite knowledge about PCB design and the RP2040. I have a working prototype using the RP2040 in repo [HERE](https://github.com/Sleepdealr/RPAD) 
+This guide requires you to have a small amount of prerequisite knowledge about PCB design and the RP2040. 
+
+I have a working prototype using it in my repo [HERE](https://github.com/Sleepdealr/RPAD) 
 
 ## Kicad Version
 To open these files, you will need a recent verison of Kicad nightly (Probably one after 6.0rc1).
@@ -15,39 +17,48 @@ You might want to import and clone the symbols/fps to your own libs.
 	- 3D Model is included
 
 Images of the 3dview, EEschema, and PCBNew in the `/img` folder.
+
 ## Extra Resources
-All the long-form information I found about the board is in in the `/Pico-Resources` Folder
+All the long-form information I found about the chip is in in the `/Pico-Resources` Folder
 
 ## Schematic 	 
 [PDF of schematic](https://github.com/Sleepdealr/RP2040-designguide/blob/main/PCB/RP2040-Guide-Schematic.pdf)
 
 ![Schematic](img/eeschema.png)
 
-Schematic is fairly simple. Just connecting up the flash, power, and clock. 
-Most of the schematic and PCB layout was taken from the datasheets, and the hardware design example provided by Raspberry. The PDF is `/Pico-Resources/hardware-design-with-rp2040.pdf`.
-I **highly** suggest reading it if anything is unclear. It's a 10x better explanation than anything I could ever come up with. 
 
-The SWD headers aren't strictly necessary, but are nice to have. I also suggest turning USB-BOOT into a physicaly button instead of just a header, would make it bit easier to push.
+Almost all of the schematic was taken from Raspberry's hardware design example, with some slight compoent choice.
+The PDF is `/Pico-Resources/hardware-design-with-rp2040.pdf`.
+
+Breakout for SWD/GPIO is NOT required, but it doesn't hurt to include it. Everything else IS necessary though.
+
+![Pin issues](https://cdn.discordapp.com/attachments/897555262473371698/912419661180706836/unknown.png)
+
+GPIO pins 15 and 16 are used for USB, so you won't be able to use them for anything else..
+
 
 ## PCB
 ![PCB](/img/pcbnew.png)
 
-Everything on the PCB can be assembled by JLC. I tried to make the BOM as cost efficient as I could, but it's still fairly expensive with all the extended components. There are a few different flash sizes you can choose from, although they end up around more or less the same price. I couldn't find an 0402 version of the 27R capacitors for the data lines which was kinda annoying. 
+### Placement / Routing 
+- Fills inside of the MCU were taken from the design example. You can just copy paste them out. Make sure to set the correct zone priority and clearances, or your fills will be all messed up. Zones are filled from high -> low numbers. 
 
-Fills inside of the MCU were taken from the design example. You can just copy paste them out. Make sure to set the correct zone priority and clearances, or your fills will be all messed up.
+- Try and keep the decoupling capacitors close to their respective pins. You might want to break up and label them in the schematic so it's easier to handle.
 
-Try and keep the decoupling capacitors as close to their respective pins as possible. You might want to break them up in the schematic so it's easier to handle.
+- Keep the flash and crystal as close as possible to the MCU
 
-Keep the flash and crystal as close as possible to the MCU
-
+### BOM
+- Everything on the PCB can be assembled by JLC. I tried to make the BOM as cost efficient as I could, but it's still fairly expensive with all the extended components. 
+- There are a few different flash sizes you can choose from, although they end up around more or less the same price. 
+- I couldn't find an 0402 version of the 27R capacitors for the data lines which was kinda annoying. 
 
 
 ## Firmware:
-Working firmware example for my RPAD
 - QMK
 	-	https://github.com/qmk/qmk_firmware/pull/14877
 	-	https://github.com/qmk/qmk_firmware/issues/11649
 	-	https://github.com/sekigon-gonnoc/qmk_firmware/tree/rp2040/keyboards/rp2040_example
+		- Flashing was really wonky with VIA enabled in `rules.mk`, so you should prob remove it 
 - Chibios 21.11.x Branch:
 	- https://osdn.net/projects/chibios/scm/svn/tree/head/branches/stable_21.11.x/os/hal/ports/RP/
 - VIAL
@@ -57,7 +68,12 @@ Working firmware example for my RPAD
 - Keyberon
 	- https://github.com/TeXitoi/keyberon
 
-To be able to flash, hold the USB-BOOT button down as you plug in the keyboard (Sorta like Bootmagic reset)
+
+To flash, hold the USB-BOOT button down as you plug in the keyboard (like Bootmagic reset)
+
+I haven't tried flashing on Windows yet, but on Linux it works fine through picotool.
+
+
 
 ## Flashing QMK on Linux from CLI:
 
