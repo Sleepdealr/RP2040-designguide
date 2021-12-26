@@ -8,7 +8,7 @@ I have a working prototype using it in my repo [HERE](https://github.com/Sleepde
 
 ## Kicad Version
 
-To open these files, you will need a recent verison of Kicad nightly (Probably one after 6.0rc1).
+To open these files, you will need a recent stable version of KiCad (6.0 or later).
 
 ## Libraries
 
@@ -30,8 +30,9 @@ All the long-form information I found about the chip is in in the `/Pico-Resourc
 
 ## Schematic
 
-[PDF of schematic](https://github.com/Sleepdealr/RP2040-designguide/blob/main/PCB/RP2040-Guide-Schematic.pdf)
+[PDF of schematic](PCB/RP2040-Guide.pdf)
 
+Image is a bit out of date. Look at the PDF or kicad files for the most recent version.
 ![Schematic](img/eeschema.png)
 
 If you want to know more about the comoponents, please read Raspberry's hardware design example.
@@ -41,9 +42,11 @@ Breakout for SWD/GPIO is NOT required.
 
 ![Pin issues](https://cdn.discordapp.com/attachments/897555262473371698/912419661180706836/unknown.png)
 
-GPIO pins 15 and 16 are used for USB, so you won't be able to use them for anything else..
+GPIO pins 15 and 16 are used for USB, so you won't be able to use them for anything else.
 
 ## PCB
+
+Image is a bit out of date. Look at the kicad files for the most recent version.
 
 ![PCB](/img/pcbnew.png)
 
@@ -61,8 +64,6 @@ GPIO pins 15 and 16 are used for USB, so you won't be able to use them for anyth
 
 - There are a few different flash sizes you can choose from, although there isn't a huge difference in price.
 
-- I couldn't find an 0402 version of the 27R capacitors for the data lines which was kinda annoying.
-
 ## Firmware
 
 - QMK
@@ -72,8 +73,8 @@ GPIO pins 15 and 16 are used for USB, so you won't be able to use them for anyth
     - Flashing was really wonky with VIA enabled in `rules.mk`, so you should prob remove it
 - Chibios 21.11.x Branch:
   - <https://osdn.net/projects/chibios/scm/svn/tree/head/branches/stable_21.11.x/os/hal/ports/RP/>
-- VIAL
-  - [VIAL supposedly working on a rp2040? (Link to VIAL discord)](https://canary.discord.com/channels/798171334756401183/798171646045323265/905160785397968926)
+- VIAL Branch
+  - <https://github.com/vial-kb/vial-qmk/tree/rp2040>
 - KMK
   - <https://github.com/KMKfw/kmk_firmware>
 - Keyberon
