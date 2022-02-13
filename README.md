@@ -40,10 +40,6 @@ The PDF is `/Pico-Resources/hardware-design-with-rp2040.pdf`.
 
 Breakout for SWD/GPIO is NOT required.
 
-![Pin issues](https://cdn.discordapp.com/attachments/897555262473371698/912419661180706836/unknown.png)
-
-GPIO pins 15 and 16 are used for USB, so you won't be able to use them for anything else.
-
 ## PCB
 
 Image is a bit out of date. Look at the kicad files for the most recent version.
