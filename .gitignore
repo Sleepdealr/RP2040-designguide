@@ -29,3 +29,4 @@ Export/**
 
 jlcpcb/*
 */*-Backups/*
+*.db
