@@ -1,10 +1,10 @@
- [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com) 
+ [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)
 
 # Hardware design for the RP2040/Raspi Pico
 
 This guide requires you to have a small amount of prerequisite knowledge about PCB design and the RP2040.
 
-I have a working prototype using it in my repo [HERE](https://github.com/Sleepdealr/RPAD)
+I have an open source board using it in my repo [HERE](https://github.com/Sleepdealr/RPAD) Which is tested and working
 
 ## Kicad Version
 
@@ -32,7 +32,7 @@ All the long-form information I found about the chip is in in the `/Pico-Resourc
 
 [PDF of schematic](PCB/RP2040-Guide.pdf)
 
-Image is a bit out of date. Look at the PDF or kicad files for the most recent version.
+THIS IMAGE WILL BE OUT OF DATE. LOOK AT THE PDF FOR THE LATEST VERSION.
 ![Schematic](img/eeschema.png)
 
 If you want to know more about the comoponents, please read Raspberry's hardware design example.
@@ -42,8 +42,7 @@ Breakout for SWD/GPIO is NOT required.
 
 ## PCB
 
-Image is a bit out of date. Look at the kicad files for the most recent version.
-
+THIS IMAGE WILL BE OUT OF DATE. LOOK AT THE KiCad FILES FOR THE LATEST VERSION.
 ![PCB](/img/pcbnew.png)
 
 ### Placement / Routing
@@ -56,19 +55,15 @@ Image is a bit out of date. Look at the kicad files for the most recent version.
 
 ### BOM
 
-- Everything on the PCB can be assembled by JLC. It's still quite expensive with all the extended components needed.
+- Everything on the PCB can be assembled by JLC. Cost for a few units is a bit high due to all the extended components, but it scales nicely :D
 
-- There are a few different flash sizes you can choose from, although there isn't a huge difference in price.
+- There are a few different flash sizes and packages to choose from. I would personally use the cheapest one that's in stock that fits.
 
 ## Firmware
 
 - QMK
-  - <https://github.com/qmk/qmk_firmware/pull/14877>
-  - <https://github.com/qmk/qmk_firmware/issues/11649>
-  - <https://github.com/sekigon-gonnoc/qmk_firmware/tree/rp2040/keyboards/rp2040_example>
-    - Flashing was really wonky with VIA enabled in `rules.mk`, so you should prob remove it
-- Chibios 21.11.x Branch:
-  - <https://osdn.net/projects/chibios/scm/svn/tree/head/branches/stable_21.11.x/os/hal/ports/RP/>
+  - KarlK90's PR: <https://github.com/qmk/qmk_firmware/pull/14877>
+  - KarlK90's Branch: <https://github.com/KarlK90/qmk_firmware/tree/feature/raspberry-pi-rp2040-support>
 - VIAL Branch
   - <https://github.com/vial-kb/vial-qmk/tree/rp2040>
 - KMK
@@ -77,14 +72,12 @@ Image is a bit out of date. Look at the kicad files for the most recent version.
   - <https://github.com/TeXitoi/keyberon>
 
 To flash, hold the USB-BOOT button down as you plug in the keyboard (like Bootmagic reset)
-
-I haven't tried flashing on Windows yet, but on Linux it works fine through picotool.
-
 ## Flashing QMK on Linux from CLI
 
 You will need to install picotool with your distro's package manager of choice, or [build it manually](https://github.com/raspberrypi/picotool#building).
 
 In order to be able to flash properly, you will need to configure a custom udev rule.
+
 Open a terminal and execute this script.
 
 ```bash
@@ -105,7 +98,7 @@ sudo udevadm trigger
 
 Command borrowed from xyz's VIAL docs
 
-## Extra
+## Extra info
 
 ### EEPROM
 
