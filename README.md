@@ -1,4 +1,4 @@
- [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)
 
 # Hardware design for the RP2040
 
@@ -8,20 +8,20 @@ I have multiple tested and working boards using the RP2040, including an open so
 
 ## Contents
 
-- [Hardware design for the RP2040](#hardware-design-for-the-rp2040)
-  - [Contents](#contents)
-  - [KiCad Version](#kicad-version)
-  - [Libraries](#libraries)
-  - [Extra Resources](#extra-resources)
-  - [Schematic](#schematic)
-  - [PCB](#pcb)
-    - [Placement / Routing](#placement--routing)
-    - [BOM](#bom)
-  - [Firmware](#firmware)
-  - [Flashing QMK on Linux from CLI](#flashing-qmk-on-linux-from-cli)
-  - [Extra info](#extra-info)
-    - [EEPROM](#eeprom)
-  - [Too Complicated?](#too-complicated)
+-   [Hardware design for the RP2040](#hardware-design-for-the-rp2040)
+    -   [Contents](#contents)
+    -   [KiCad Version](#kicad-version)
+    -   [Libraries](#libraries)
+    -   [Extra Resources](#extra-resources)
+    -   [Schematic](#schematic)
+    -   [PCB](#pcb)
+        -   [Placement / Routing](#placement--routing)
+        -   [BOM](#bom)
+    -   [Firmware](#firmware)
+    -   [Flashing QMK on Linux from CLI](#flashing-qmk-on-linux-from-cli)
+    -   [Extra info](#extra-info)
+        -   [EEPROM](#eeprom)
+    -   [Too Complicated?](#too-complicated)
 
 ## KiCad Version
 
@@ -31,13 +31,13 @@ To open these files, you will need a recent stable version of KiCad (6.0 or late
 
 You can either import them into your own library or keep them separate.
 
-- Symbol:
-  - Created by me to be easier to use
-  - `/PCB/Libraries/Sleep-lib`
-- Footprint:
-  - Taken from Raspberry
-  - `/PCB/Libraries/Footprints/RP2040-QFN-56.kicad_mod`
-  - 3D Model is included
+-   Symbol:
+    -   Created by me to be easier to use
+    -   `/PCB/Libraries/Sleep-lib`
+-   Footprint:
+    -   Taken from Raspberry
+    -   `/PCB/Libraries/Footprints/RP2040-QFN-56.kicad_mod`
+    -   3D Model is included
 
 Images of the 3DView, EEschema, and PCBNew in the `/img` folder.
 
@@ -66,29 +66,29 @@ THIS IMAGE WILL BE OUT OF DATE. LOOK AT THE KiCad FILES FOR THE LATEST VERSION.
 
 ### Placement / Routing
 
-- Fills inside of the MCU were taken from the design example. You can just copy paste them out. Make sure to set the correct zone priority and clearances. Zones are filled from high to low numbers.
-- Keep the decoupling capacitors close to their respective pins.
-- Keep the flash and crystal as close as possible to the MCU with minimal overlaps
-- I would suggest including an actual switch for USB BOOT on production boards to make it easier, but that's up to you.
+-   Fills inside of the MCU were taken from the design example. You can just copy paste them out. Make sure to set the correct zone priority and clearances. Zones are filled from high to low numbers.
+-   Keep the decoupling capacitors close to their respective pins.
+-   Keep the flash and crystal as close as possible to the MCU with minimal overlaps
+-   I would suggest including an actual switch for USB BOOT on production boards to make it easier, but that's up to you.
 
 ### BOM
 
-- Everything on the PCB can be assembled by JLC. Cost for a few units is a bit high due to all the extended components
-- I have tested and working JLC part numbers for all of the components, but please check if they are all in stock and at a reasonable price first before ordering. There could be a better alternative available.
-- There are a few different flash sizes and packages to choose from. Use the cheapest compatible one. The basic part one may not always be the cheapest
+-   Everything on the PCB can be assembled by JLC. Cost for a few units is a bit high due to all the extended components
+-   I have tested and working JLC part numbers for all of the components, but please check if they are all in stock and at a reasonable price first before ordering. There could be a better alternative available.
+-   There are a few different flash sizes and packages to choose from. Use the cheapest compatible one. The basic part one may not always be the cheapest
 
 ## Firmware
 
-- QMK
-  - KarlK90's PR: <https://github.com/qmk/qmk_firmware/pull/14877>
-  - KarlK90's Branch: <https://github.com/KarlK90/qmk_firmware/tree/feature/raspberry-pi-rp2040-support>
-- VIAL
-  - <https://github.com/vial-kb/vial-qmk/tree/rp2040>
-    - This is based off of Sekigon-Gonnoc's work
-- KMK
-  - <https://github.com/KMKfw/kmk_firmware>
-- Keyberon
-  - <https://github.com/TeXitoi/keyberon>
+-   QMK
+    -   KarlK90's PR: <https://github.com/qmk/qmk_firmware/pull/14877>
+    -   KarlK90's Branch: <https://github.com/KarlK90/qmk_firmware/tree/feature/raspberry-pi-rp2040-support>
+-   VIAL
+    -   <https://github.com/vial-kb/vial-qmk/tree/rp2040>
+        -   This is based off of Sekigon-Gonnoc's work
+-   KMK
+    -   <https://github.com/KMKfw/kmk_firmware>
+-   Keyberon
+    -   <https://github.com/TeXitoi/keyberon>
 
 To flash, hold the USB-BOOT button down as you plug in the keyboard (like Bootmagic reset)
 
@@ -132,6 +132,4 @@ This isn't really an issue, as the flash chip I used is rated for 100k cycles [l
 
 ## Too Complicated?
 
-If all of this seems to daunting, my commissions are open! You can contact me on discord at Sleepdealer#0001 or through email at sleepdealer01@protonmail.com
-
-Portfolio: <https://imgur.com/a/Rk1bR8Z>
+If all of this seems to daunting, my commissions are open! You can contact my friend on discord at Ella#0008 or through email at hi@ellie.ooo
