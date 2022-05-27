@@ -4,8 +4,7 @@
 
 This guide requires you to have a small amount of prerequisite knowledge about PCB design and the RP2040.
 
-I have an open source board using it in my repo [HERE](https://github.com/Sleepdealr/RPAD) Which is tested and working
-
+I have an open source board using it in my repo [HERE](https://github.com/Sleepdealr/RPAD) which is tested and working
 ## Kicad Version
 
 To open these files, you will need a recent stable version of KiCad (6.0 or later).
@@ -72,6 +71,7 @@ THIS IMAGE WILL BE OUT OF DATE. LOOK AT THE KiCad FILES FOR THE LATEST VERSION.
   - <https://github.com/TeXitoi/keyberon>
 
 To flash, hold the USB-BOOT button down as you plug in the keyboard (like Bootmagic reset)
+
 ## Flashing QMK on Linux from CLI
 
 You will need to install picotool with your distro's package manager of choice, or [build it manually](https://github.com/raspberrypi/picotool#building).
