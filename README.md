@@ -27,7 +27,7 @@ I have multiple tested and working boards using the RP2040, including an open so
 
 To open these files, you will need a recent stable version of KiCad (6.0 or later).
 
-Stop using Kicad 5.X, it's out of date
+Stop using KiCad 5.X, it's out of date
 
 ## Libraries
 
@@ -134,6 +134,6 @@ This isn't really an issue, as the flash chip I used is rated for 100k cycles [l
 
 ## Too Complicated?
 
-If all of this seems to daunting, my commissions are open! You can contact me on discord at Sleepdealer#0001 or through email at sleepdealer01@protonmail.com
+If all of this seems too daunting, my commissions are open! You can contact me on discord at Sleepdealer#0001 or through email at sleepdealer01@protonmail.com
 
 Portfolio: <https://imgur.com/a/Rk1bR8Z>
