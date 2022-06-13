@@ -1,4 +1,4 @@
- [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/reading-6th-grade-level.svg)](https://forthebadge.com)
 
 # Hardware design for the RP2040
 
@@ -26,6 +26,8 @@ I have multiple tested and working boards using the RP2040, including an open so
 ## KiCad Version
 
 To open these files, you will need a recent stable version of KiCad (6.0 or later).
+
+Stop using Kicad 5.X, it's out of date
 
 ## Libraries
 
