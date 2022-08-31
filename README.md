@@ -74,7 +74,7 @@ Trust me on these pls
 
 Use the XC6206, it's a basic part on JLC. The 200mA it provides is plenty for the RP2040.
 
-The AMS1117 has high quiescent current, needs large caps, and has a bad minimum load.
+The AMS1117 has high quiescent current, needs large caps, and has a bad minimum load. Don't use it.
 
 #### Crystal
 
