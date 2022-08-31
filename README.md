@@ -14,6 +14,11 @@ I have multiple tested and working boards using the RP2040, including an open so
   - [Libraries](#libraries)
   - [Extra Resources](#extra-resources)
   - [Schematic](#schematic)
+    - [Component Choices](#component-choices)
+      - [Voltage Regulator](#voltage-regulator)
+      - [Crystal](#crystal)
+      - [Flash](#flash)
+      - [Pushbuttons](#pushbuttons)
   - [PCB](#pcb)
     - [Placement / Routing](#placement--routing)
     - [BOM](#bom)
@@ -54,12 +59,36 @@ All the other information I found about the chip is in in the `/Pico-Resources` 
 THIS IMAGE WILL BE OUT OF DATE. LOOK AT THE PDF FOR THE LATEST VERSION.
 ![Schematic](img/eeschema.png)
 
-If you want to know more about the components choices, read Raspberry's hardware design example.
+If you want to know more about the components choices, read the section below or Raspberry's hardware design example.
 The PDF is `/Pico-Resources/hardware-design-with-rp2040.pdf`.
 
 I would also recommend reading my [Best practices for PCB Design](https://gist.github.com/Sleepdealr/ab05f5edb82eae9e0393f4d63da55adf) guide before making your own schematic or PCB
 
 Breakout for SWD/GPIO is NOT required.
+
+### Component Choices
+
+Trust me on these pls
+
+#### Voltage Regulator
+
+Use the XC6206, it's a basic part on JLC. The 200mA it provides is plenty for the RP2040.
+
+The AMS1117 has high quiescent current, needs large caps, and has a bad minimum load.
+
+#### Crystal
+
+C9002 is a great basic part for a 12MHz 3225 crystal
+
+#### Flash
+
+There are a ton of options for flash, but I tend to stick with C82317 as it's a basic part and has a good price. More than enough flash for any keyboard.
+
+#### Pushbuttons
+
+Although I didn't use a button on the included PCB files, you can easily add one yourself. A good cheap button that fits the Alps SKQG footprint is C318884.
+
+####
 
 ## PCB
 
