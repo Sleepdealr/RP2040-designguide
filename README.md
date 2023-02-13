@@ -6,6 +6,8 @@ This guide requires you to have prerequisite knowledge about PCB design and a li
 
 I have multiple tested and working boards using the RP2040, including an open source one you can find [here](https://github.com/Sleepdealr/RPAD)!
 
+Bit of a disclaimer: I have mostly switched from RP2040 over to STM32F072 due to a few reasons. Mostly component cost and the amount of parts necessary, as well as overall stability. I have a tested and OSH f072 PCBs available on github. Namely [here](https://github.com/Sleepdealr/Majestouch-2-TKL-Replacement-Controller), [here](https://github.com/Sleepdealr/OSFRL), and [here](https://github.com/Sleepdealr/Kingsaver-Replacement-PCB). Designing with f072 is generally easier as well, so I would suggest it even for beginners.
+
 ## Contents
 
 - [Hardware design for the RP2040](#hardware-design-for-the-rp2040)
@@ -18,7 +20,7 @@ I have multiple tested and working boards using the RP2040, including an open so
     - [Placement / Routing](#placement--routing)
     - [BOM](#bom)
   - [Firmware](#firmware)
-  - [Flashing QMK on Linux from CLI](#flashing-qmk-on-linux-from-cli)
+    - [Flashing QMK on Linux from CLI](#flashing-qmk-on-linux-from-cli)
   - [Extra info](#extra-info)
     - [EEPROM](#eeprom)
   - [Too Complicated?](#too-complicated)
@@ -70,23 +72,25 @@ THIS IMAGE WILL BE OUT OF DATE. LOOK AT THE KiCad FILES FOR THE LATEST VERSION.
 
 - Fills inside of the MCU were taken from the design example. You can just copy paste them out. Make sure to set the correct zone priority and clearances. Zones are filled from high to low numbers.
 - Keep the decoupling capacitors close to their respective pins.
-- Keep the flash and crystal as close as possible to the MCU with minimal overlaps
-- I would suggest including an actual switch for USB BOOT on production boards to make it easier, but that's up to you.
+- Keep the flash and crystal as close as possible to the MCU with minimal overlaps and vias
+  - If anything, just copy paste from my files
+- I would suggest including an actual switch for USB BOOT or RESET on to make it easier to flash, but that's up to you.
 
 ### BOM
 
-- Everything on the PCB can be assembled by JLC. Cost for a few units is a bit high due to all the extended components
-- I have tested and working JLC part numbers for all of the components, but please check if they are all in stock and at a reasonable price first before ordering. There could be a better alternative available.
-- There are a few different flash sizes and packages to choose from. Use the cheapest compatible one. The basic part one may not always be the cheapest
+- Everything on the PCB can be assembled by JLC, all the part numbers have been added to the components with the Kicad JLCPCB plugin
+- I have tested and working JLC part numbers for all of the components, but check the stock levels and prices first before ordering. There may be a better alternative available
+- There are a few different flash sizes and packages to choose from. All of them should work pretty much the same, since firmware size is not an issue. I usually just go with the cheapest option
 
 ## Firmware
 
+Both QMK and Vial have support for RP2040 in their master branches. Make sure to check the features you want before designing
+
 - QMK
-  - KarlK90's PR: <https://github.com/qmk/qmk_firmware/pull/14877>
-  - KarlK90's Branch: <https://github.com/KarlK90/qmk_firmware/tree/feature/raspberry-pi-rp2040-support>
-- VIAL
-  - <https://github.com/vial-kb/vial-qmk/tree/rp2040>
-    - This is based off of Sekigon-Gonnoc's work
+  - QMK Main Branch: <https://github.com/qmk/qmk_firmware/>
+  - RP2040 available features: <https://docs.qmk.fm/#/platformdev_rp2040?id=raspberry-pi-rp2040>
+- Vial
+  - Vial Main Branch: <https://github.com/vial-kb/vial-qmk/>
 - KMK
   - <https://github.com/KMKfw/kmk_firmware>
 - Keyberon
@@ -94,7 +98,7 @@ THIS IMAGE WILL BE OUT OF DATE. LOOK AT THE KiCad FILES FOR THE LATEST VERSION.
 
 To flash, hold the USB-BOOT button down as you plug in the keyboard (like Bootmagic reset)
 
-## Flashing QMK on Linux from CLI
+### Flashing QMK on Linux from CLI
 
 You will need to install picotool with your distro's package manager of choice, or [build it manually](https://github.com/raspberrypi/picotool#building).
 
@@ -136,4 +140,4 @@ This isn't really an issue, as the flash chip I used is rated for 100k cycles [l
 
 If all of this seems too daunting, my commissions are open! You can contact me on discord at Sleepdealer#0001 or through email at sleepdealer01@protonmail.com
 
-Portfolio: <https://imgur.com/a/Rk1bR8Z>
+Portfolio: <https://sleepdealer.xyz/article/portfolio>
